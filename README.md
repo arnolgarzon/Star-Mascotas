@@ -1,54 +1,201 @@
 # 🐾 Star Mascotas - Sistema de Gestión de Inventario
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+Aplicación web moderna para la gestión de inventario en tiendas de mascotas.
 
-**Star Mascotas** es una aplicación web moderna y minimalista diseñada para el control de inventario de tiendas veterinarias. Enfocada en la experiencia de usuario (UX), permite gestionar productos de forma rápida, con una interfaz adaptativa que funciona perfectamente tanto en escritorio como en dispositivos móviles.
+Diseñada con enfoque en **simplicidad, velocidad y experiencia de usuario**, permite registrar, visualizar y administrar productos de forma intuitiva tanto en computador como en dispositivos móviles.
 
 ---
 
-## ✨ Características Principales
+## 🎯 ¿Qué hace esta aplicación?
 
-*   **Gestión CRUD:** Registro, edición y eliminación de productos en tiempo real.
-*   **Diseño Table-to-Card:** Sistema inteligente que transforma tablas pesadas en tarjetas elegantes en dispositivos móviles (Zero Horizontal Scroll).
-*   **Interfaz Premium:** Uso de variables CSS personalizadas, sombras profundas y micro-interacciones.
-*   **Loader Inteligente:** Pantalla de carga animada con efecto de desenfoque (Glassmorphism).
-*   **Validaciones Dinámicas:** Control de stock y campos obligatorios para evitar errores de datos.
+Permite gestionar un inventario básico de productos:
+
+- 📝 Registrar productos
+- 📦 Ver listado de productos
+- ✏️ Editar productos
+- 🗑️ Eliminar productos
+- 📊 Exportar inventario a CSV
+
+---
+
+## 🖼️ Interfaz
+
+La aplicación está diseñada como un pequeño panel administrativo:
+
+- Formulario de registro
+- Tabla de inventario
+- Botones de acción (editar, eliminar, exportar)
+
+Además, cuenta con:
+
+- 🎨 Diseño responsivo (funciona en celular y PC)
+- ⚡ Interacciones rápidas
+- 🧠 Validaciones visuales en formularios
 
 ---
 
 ## 🚀 Tecnologías Utilizadas
 
-*   **React.js:** Para la lógica de componentes y manejo de estados.
-*   **CSS3 (Custom Properties):** Sistema de temas basado en variables para facilitar el mantenimiento.
-*   **Lucide Icons / Emojis:** Para una comunicación visual intuitiva.
-*   **Vite:** Herramienta de construcción ultra rápida para el desarrollo.
+### Frontend
+- React.js
+- Vite
+- CSS3 (Variables globales - theme.css)
+
+### Backend
+- FastAPI (Python)
+- SQLite (Base de datos ligera)
 
 ---
 
-## 🛠️ Instalación y Configuración
+## 📁 Estructura del Proyecto
+project/
+│
+├── backend/
+│ ├── main.py
+│ ├── models.py
+│ ├── database.py
+│
+├── frontend/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── api/
+│ │ ├── styles/
+│ │ ├── App.jsx
+│ │ └── main.jsx
 
-Sigue estos pasos para ejecutar el proyecto localmente:
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/arnolgarzon/Star-Mascotas
+---
 
+# 🧭 🧑‍💻 GUÍA DE INSTALACIÓN (PASO A PASO)
 
-## 🚀 Guía de Instalación (Paso a Paso)
+> Si no tienes experiencia técnica, sigue esto literalmente 👇
 
-Si no tienes experiencia previa instalando aplicaciones de este tipo, sigue estos pasos:
+---
 
-### 1. Preparar el terreno
-Necesitas tener instalado **Node.js** en tu computadora. Es el motor que permite ejecutar la app.
-*   [Descargar Node.js aquí](https://nodejs.org/) (Recomendado: Versión LTS).
+## 🧱 1. Instalar Node.js
 
-### 2. Descargar el Proyecto
-Descarga este repositorio como un archivo `.zip` y descomprímelo en tu carpeta favorita (o usa `git clone`).
+Node.js es necesario para ejecutar el frontend.
 
-### 3. Instalación de "Piezas"
-Abre una terminal (consola) en la carpeta del proyecto y escribe:
+👉 Descárgalo aquí:  
+https://nodejs.org/  
+(Recomendado: versión LTS)
+
+---
+
+## 🐍 2. Instalar Python
+
+Necesario para el backend.
+
+👉 Descárgalo aquí:  
+https://www.python.org/downloads/
+
+---
+
+## 📥 3. Descargar el proyecto
+
+Puedes hacerlo de dos formas:
+
+### Opción 1 (recomendada)
 ```bash
+git clone https://github.com/arnolgarzon/Star-Mascotas
+
+Opción 2
+
+Descargar el ZIP desde GitHub y descomprimirlo.
+
+⚙️ CONFIGURACIÓN DEL BACKEND
+📂 4. Ir a la carpeta backend
+cd backend
+📦 5. Instalar dependencias
+pip install fastapi uvicorn sqlalchemy
+▶️ 6. Ejecutar servidor
+uvicorn main:app --reload
+
+👉 Esto levantará el backend en:
+
+http://localhost:8000
+⚙️ CONFIGURACIÓN DEL FRONTEND
+📂 7. Ir a la carpeta frontend
+cd frontend
+📦 8. Instalar dependencias
 npm install
+▶️ 9. Ejecutar aplicación
+npm run dev
+
+👉 Abre en tu navegador:
+
+http://localhost:5173
+🧪 USO DE LA APLICACIÓN
+
+Ingresa un producto en el formulario
+
+Presiona Guardar Producto
+
+Verás el producto en la tabla
+
+Puedes:
+
+✏️ Editarlo
+
+🗑️ Eliminarlo
+
+📊 Exportarlo a CSV
+
+🎨 DISEÑO Y MANTENIBILIDAD
+
+El sistema utiliza un archivo:
+
+theme.css
+
+Donde se centralizan:
+
+Colores
+
+Espaciados
+
+Bordes
+
+Sombras
+
+👉 Esto permite cambiar el diseño completo modificando solo un archivo.
+
+🤖 USO DE IA
+
+Se utilizó inteligencia artificial como apoyo en:
+
+Generación de arquitectura
+
+Mejora de código
+
+Optimización de UI/UX
+
+Consulta el archivo:
+
+PROMPTS.md
+📌 POSIBLES MEJORAS FUTURAS
+
+🔍 Filtro por categoría
+
+📄 Paginación
+
+🔐 Autenticación de usuarios
+
+🌙 Modo oscuro
+
+☁️ Despliegue en la nube
+
+👨‍💻 Autor
+
+Arnol Garzón
+
+⭐ Conclusión
+
+Este proyecto fue desarrollado aplicando:
+
+Buenas prácticas de desarrollo
+
+Código limpio
+
+Separación de responsabilidades
+
+Enfoque en experiencia de usuario
