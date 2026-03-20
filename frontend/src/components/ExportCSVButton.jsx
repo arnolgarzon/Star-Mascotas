@@ -1,19 +1,21 @@
 import { exportToCSV } from "../utils/csvExport";
 
-// Button component to export products to CSV
-// Botón para exportar productos a CSV
+/**
+ * @name ExportCSVButton
+ * @description Botón que exporta la data de productos a un archivo CSV.
+ */
 const ExportCSVButton = ({ data }) => {
+  // Manejador para la exportación de datos
   const handleExport = () => {
-    // Example: pet products array
-    // Ejemplo: productos de mascotas
+    // Mapeo de los datos para que coincidan con el formato esperado por la función de exportación
     const petProducts = data.map((p) => ({
-      Name: p.name,
-      Category: p.category,
-      Price: p.price,
+      Nombre: p.name,
+      Categoría: p.category,
+      Precio: p.price,
       Stock: p.stock,
     }));
 
-    exportToCSV(petProducts, "pet_products.csv");
+    exportToCSV(petProducts, "productos_mascotas.csv");
   };
 
   return (

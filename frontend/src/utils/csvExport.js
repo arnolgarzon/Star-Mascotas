@@ -1,39 +1,41 @@
-// Convert array of objects to CSV and trigger download
-// Convierte un arreglo de objetos a CSV y dispara la descarga
-
-export const exportToCSV = (data, filename = "products.csv") => {
+/**
+ * @name exportToCSV
+ * @description Convierte un arreglo de objetos a un archivo CSV y lo descarga.
+ *
+ * @param {Array<Object>} data - Arreglo de objetos a exportar.
+ * @param {string} filename - Nombre del archivo CSV de salida.
+ */
+export const exportToCSV = (data, filename = "productos.csv") => {
+  // 1. Validar que haya datos para exportar.
   if (!data || data.length === 0) {
-    console.warn("No data to export");
+    console.warn("No hay datos para exportar.");
     return;
   }
 
-  // Extract headers (keys of the object)
-  // Extraer encabezados (llaves del objeto)
+  // 2. Extraer los encabezados de la primera fila de datos.
   const headers = Object.keys(data[0]);
 
-  // Convert data to CSV rows
-  // Convertir datos a filas CSV
+  // 3. Construir las filas del CSV.
   const csvRows = [];
+  csvRows.push(headers.join(",")); // Fila de encabezados
 
-  // Header row
-  csvRows.push(headers.join(","));
-
-  // Data rows
+  // 4. Mapear cada objeto a una fila de valores CSV.
   data.forEach((row) => {
     const values = headers.map((header) => {
+      // Escapar comillas dobles para evitar errores en el formato CSV.
       const escaped = String(row[header]).replace(/"/g, '\\"');
       return `"${escaped}"`;
     });
     csvRows.push(values.join(","));
   });
 
-  // Join all rows
+  // 5. Unir todas las filas en un solo string.
   const csvString = csvRows.join("\n");
 
-  // Create Blob
+  // 6. Crear un Blob (objeto binario) para el contenido del archivo.
   const blob = new Blob([csvString], { type: "text/csv" });
 
-  // Create download link
+  // 7. Simular un clic en un enlace para descargar el archivo.
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement("a");
 
@@ -41,8 +43,9 @@ export const exportToCSV = (data, filename = "products.csv") => {
   a.download = filename;
 
   document.body.appendChild(a);
-  a.click();
+  a.click(); // Iniciar descarga
 
+  // 8. Limpiar el enlace y el objeto URL.
   document.body.removeChild(a);
   window.URL.revokeObjectURL(url);
 };
